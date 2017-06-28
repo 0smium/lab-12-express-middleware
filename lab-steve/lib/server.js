@@ -5,8 +5,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 //NPM Middleware
-// const cors = require('cors');
-// const morgan = require('morgan');
+const cors = require('cors');
+const morgan = require('morgan');
 
 //configure Mongoose
 mongoose.Promise = Promise;
@@ -24,8 +24,8 @@ let server;
 const app = express();
 
 //add Middleware
-// app.use(cors);
-// app.use(morgan('dev'));
+app.use(cors());
+app.use(morgan('dev'));
 
 //tell app to use ../route/hops-routerjs and ./error-middleware.js
 app.use(require('../route/hops-router.js'));

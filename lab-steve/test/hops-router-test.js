@@ -89,6 +89,9 @@ describe('testing hop routes', () => {
     it('should respond with a 400 status code and a hop with name \'Magnum\'.', () => {
       return request.put(`${API_URL}/api/hops/${tempHop._id}`)
         .send(null)
+        .then(res => {
+          expect(res.body.name).toEqual('Magnum');
+        })
         .catch(err => {
           expect(err.status).toEqual(400);
         });
