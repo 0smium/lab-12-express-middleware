@@ -44,15 +44,15 @@ hopsRouter.put('/api/hops/:id', jsonParser, (req, res, next) => {
 
 hopsRouter.delete('/api/hops/:id', (req, res, next) => {
   console.log('DELETE /api/hops/:id');
-  Hop.findByIdAndRemove(req.parama.id, req.body)
+  Hop.findByIdAndRemove(req.params.id, req.body)
     .then(() => res.status(204).send('deleted record'))
     .catch(next);
 });
 
 //extra method to delete all records for the resource
-hopsRouter.delete('/api/hops', (req, res, next => {
+hopsRouter.delete('/api/hops', (req, res, next) => {
   console.log('DELETE api/hops');
-  Hop.Remove()
+  Hop.remove()
     .then(() => res.status(204).send('deleted all records for the resource'))
     .catch(next);
-}));
+});
