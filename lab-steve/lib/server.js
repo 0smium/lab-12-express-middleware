@@ -4,6 +4,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+//NPM Middleware
+const cors = require('cors');
+const morgan = require('morgan');
+
 //configure Mongoose
 mongoose.Promise = Promise;
 
@@ -19,8 +23,13 @@ mongoose.connect(process.env.MONGODB_URI, (err) => {
 let server;
 const app = express();
 
-//tell app to use ../route/<router>.js
-app.use(require('../route/<router>.js'));
+//add Middleware
+app.use(cors);
+app.use(morgan('dev'));
+
+//tell app to use ../route/hops-routerjs and ./error-middleware.js
+app.use(require('../route/hops-router.js'));
+app.use(require('./error-middleware.js'));
 
 //export server and server controls
 const serverControl = module.exports = {};

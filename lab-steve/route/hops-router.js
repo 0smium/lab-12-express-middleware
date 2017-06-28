@@ -31,7 +31,13 @@ hopsRouter.get('/api/hops/:id', (req, res, next) => {
 
 hopsRouter.put('/api/hops/:id', jsonParser, (req, res, next) => {
   console.log('PUT /api/hips:id');
-  Hop.findByIdAndUpdate(req.params.id, req.body, {new:true})
+
+  let options = {
+    runValidator: true,
+    new: true,
+  };
+
+  Hop.findByIdAndUpdate(req.params.id, req.body, options)
     .then(hop => res.status(202).json(hop))
     .catch(next);
 });
