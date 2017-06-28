@@ -1,0 +1,38 @@
+{
+  "name": "lab-12-express-middleware",
+  "version": "1.0.0",
+  "description": "![cf](https://i.imgur.com/7v5ASc8.png) lab 12 single resource express api ======",
+  "main": "index.js",
+  "scripts": {
+    "start-db": "mkdir -p ./db && mongod -dbpath ./db &",
+    "stop-db": "killall mongod",
+    "test": "mocha",
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0smium/lab-12-express-middleware.git"
+  },
+  "author": "Steve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0smium/lab-12-express-middleware/issues"
+  },
+  "homepage": "https://github.com/0smium/lab-12-express-middleware#readme",
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
+    "superagent": "^3.5.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.0",
+    "morgan": "^1.8.2"
+  }
+}
