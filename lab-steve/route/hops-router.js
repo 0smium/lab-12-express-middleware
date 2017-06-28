@@ -30,7 +30,13 @@ hopsRouter.get('/api/hops/:id', (req, res, next) => {
 });
 
 hopsRouter.put('/api/hops/:id', jsonParser, (req, res, next) => {
-  console.log('PUT /api/hips:id');
+  console.log('PUT /api/hops:id');
+
+  if (Object.keys(req.body).length === 0) {
+    Hop.findById(req.params.id)
+      .then(hop => res.status(400).json(hop))
+      .catch(next);
+  }
 
   let options = {
     runValidator: true,
